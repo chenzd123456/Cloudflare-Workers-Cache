@@ -11,10 +11,9 @@
 使用 Cloudflare-Workers-Cache 提升资源下载速度。以下是这个库提供的一些主要功能：
 
 1. 通过 Cache API 缓存、更新及检索响应。
-
 2. 透明的支持 HTTP/HTTPS 不同协议。
-
 3. 快速且可靠的缓存（被 Cloudflare 用于全球性网络）。
+4. 支持修改下载文件的文件名。
 
 ## 什么是 Cloudflare Workers ？
 
