@@ -299,6 +299,7 @@ const HTML = (lang) => `
 
     $form.on('submit', event => {
         event.preventDefault();
+        removeResult();
         const url = $('#url').val().trim();
         
         if(!isValidUrl(url)) {
@@ -313,9 +314,11 @@ const HTML = (lang) => `
         }
 
         let filename = $('#filename').val().trim();
+
         if (!filename) {
             filename = getFileName(url);
         }
+
         const apiUrl = window.location.href;
         const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
         console.log(generateUrl);
