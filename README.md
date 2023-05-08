@@ -4,7 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/chenzd123456/Cloudflare-Workers-Cache?color=%23555555)
 ![GitHub language count](https://img.shields.io/github/languages/count/chenzd123456/Cloudflare-Workers-Cache?color=%23478CBF)
 
-通过使用 Cloudflare Workers Cache，您可以提升资源下载速度。这个库提供以下主要功能：
+通过使用 Cloudflare Workers Cache，您可以提升资源下载速度。这个项目提供以下主要功能：
 
 1. 通过 Cache API 缓存、更新及检索响应。
 2. 透明的支持 HTTP/HTTPS 不同协议。
