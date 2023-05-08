@@ -1,2 +1,2 @@
 # Cloudflare-Workers-Cache
-Cloudflare Workers universal resource acceleration script.
+Cloudflare Workers 通用缓存加速脚本
