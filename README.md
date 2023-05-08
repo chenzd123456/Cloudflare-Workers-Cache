@@ -35,7 +35,25 @@ Cloudflare Workers是Cloudflare提供的基于JavaScript运行时的无服务器
     ```shell
     curl -I 生成的加速链接
     ```
+5. 在你的网站中加入下面的代码
+    首先加入加速链接生成函数
     
+    ```html
+    <script>
+        function getAcceleratedUrl(apiUrl, url, filename='') {
+          const base64 = btoa(url);
+          const generateUrl  = apiUrl + filename + '?url=' + base64;
+          return generateUrl
+        }
+    </script>
+    ```
+    
+    生成资源加速链接
+    ```js
+    getAcceleratedUrl(你部署的Workers域名, 资源url,可选的文件名)
+    ```
+    
+
 ## 贡献
 
 欢迎参与本项目的贡献，您可以创建一个 Issue 或提交一个 Pull Request 来共同完善这个项目。
