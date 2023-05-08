@@ -222,7 +222,6 @@ const HTML = (lang) => `
     });
     
     form.addEventListener('reset', event => {
-      event.preventDefault();
       removeResult()
     });
 </script>
