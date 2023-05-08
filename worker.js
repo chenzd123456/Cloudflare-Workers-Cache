@@ -189,6 +189,24 @@ const HTML = (lang) => `
           });
         });
     }
+    
+    function addResult(generateUrl) {
+      const resultDiv = document.querySelector('#result');
+      resultDiv.innerHTML =
+          '<div class="box has-background-light">'
+          + '<label class="label" for="url">${LANGUAGES[lang].generateUrlLabel}</label>'
+          + '<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly>' + generateUrl + '</textarea>'
+          + '<div class="field is-grouped mt-3 buttons">'
+          + '<button class="button is-info" onclick="copyToClipboard()">${LANGUAGES[lang].copyLink}</button>'
+          + '<a class="button is-info" href="' + generateUrl + '">${LANGUAGES[lang].downloadLink}</a>'
+          + '</div>'
+          + '</div>';
+    }
+    
+    function removeResult() {
+       const resultDiv = document.querySelector('#result');
+       resultDiv.innerHTML = ""
+    }
 
     form.addEventListener('submit', event => {
       event.preventDefault();
@@ -200,16 +218,20 @@ const HTML = (lang) => `
       const apiUrl = window.location.href;
       const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
       console.log(generateUrl);
-      const resultDiv = document.querySelector('#result');
-      resultDiv.innerHTML =
-          '<div class="box has-background-light">'
-          + '<label class="label" for="url">${LANGUAGES[lang].generateUrlLabel}</label>'
-          + '<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly>' + generateUrl + '</textarea>'
-          + '<div class="field is-grouped mt-3 buttons">'
-          + '<button class="button is-info" onclick="copyToClipboard()">${LANGUAGES[lang].copyLink}</button>'
-          + '<a class="button is-info" href="' + generateUrl + '">${LANGUAGES[lang].downloadLink}</a>'
-          + '</div>'
-          + '</div>';
+      addResult(generateUrl)
+    });
+    
+    form.addEventListener('reset', event => {
+      event.preventDefault();
+      const url = form.querySelector('#url').value.trim()
+      let filename = form.querySelector('#filename').value.trim()
+      if(!filename) {
+          filename = getFileName(url);
+      }
+      const apiUrl = window.location.href;
+      const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
+      console.log(generateUrl);
+      addResult(generateUrl)
     });
 </script>
 </body>
