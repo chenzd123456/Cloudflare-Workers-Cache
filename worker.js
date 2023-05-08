@@ -19,6 +19,7 @@ const LANGUAGES = {
     copiedSuccess: 'Text copied to clipboard',
     failedToCopy: 'Failed to copy text:',
     isInvilidUrl: 'Is invilid url',
+    githubText: 'Powered by Cloudflare-Workers-Cache'
   },
   zh: {
     title: '下载链接生成器',
@@ -30,7 +31,8 @@ const LANGUAGES = {
     copyLink: '复制链接',
     downloadLink: '下载链接',
     copiedSuccess: '已复制到剪贴板',
-    failedToCopy: '复制失败：'
+    failedToCopy: '复制失败：',
+    githubText: '由Cloudflare-Workers-Cache提供支持'
   },
   fr: {
     title: 'Générateur de lien de téléchargement',
@@ -42,7 +44,8 @@ const LANGUAGES = {
     copyLink: 'Copier le lien',
     downloadLink: 'Télécharger le lien',
     copiedSuccess: 'Texte copié dans le presse-papiers',
-    failedToCopy: 'Impossible de copier le texte ：'
+    failedToCopy: 'Impossible de copier le texte ：',
+    githubText: 'Propulsé par Cloudflare-Workers-Cache'
   },
   es: {
     title: 'Generador de enlaces de descarga',
@@ -54,7 +57,8 @@ const LANGUAGES = {
     copyLink: 'Copiar enlace',
     downloadLink: 'Enlace de descarga',
     copiedSuccess: 'Texto copiado al portapapeles',
-    failedToCopy: 'Error al copiar el texto: '
+    failedToCopy: 'Error al copiar el texto: ',
+    githubText: 'Desarrollado por Cloudflare-Workers-Cache'
   },
   de: {
     title: 'Download-Link-Generator',
@@ -66,9 +70,11 @@ const LANGUAGES = {
     copyLink: 'Link kopieren',
     downloadLink: 'Download-Link',
     copiedSuccess: 'Text in die Zwischenablage kopiert',
-    failedToCopy: 'Fehler beim Kopieren des Textes: '
+    failedToCopy: 'Fehler beim Kopieren des Textes: ',
+    githubText: 'Betrieben von Cloudflare-Workers-Cache'
   }
 }
+
 
 /**
 * 默认语言为英语
@@ -96,6 +102,19 @@ const HTML = (lang) => `
         }
         .button {
             margin-top: .5rem;
+        }
+        .github-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #4a4a4a;
+            text-decoration: none;
+        }
+        .github-icon {
+            font-size: 1.2rem;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -134,6 +153,12 @@ const HTML = (lang) => `
             <div class="column">
                 <div id="result"></div>
             </div>
+        </div>
+        <div class="github-link">
+            <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
+                <i class="fab fa-github github-icon"></i>
+                ${LANGUAGES[lang].githubText}
+            </a>
         </div>
     </div>
 </section>
@@ -206,7 +231,7 @@ const HTML = (lang) => `
     }
 
     function removeResult() {
-        $resultDiv.html("");
+        $resultDiv.html('');
     }
 
     $form.on('submit', event => {
@@ -226,6 +251,7 @@ const HTML = (lang) => `
         removeResult()
     });
 </script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 </body>
 </html>
 `;
