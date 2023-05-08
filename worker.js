@@ -223,7 +223,7 @@ const HTML = (lang) => `
     
     form.addEventListener('reset', event => {
       event.preventDefault();
-      removeResult(generateUrl)
+      removeResult()
     });
 </script>
 </body>
