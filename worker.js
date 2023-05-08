@@ -84,6 +84,7 @@ const HTML = (lang) => `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.2/dist/bulma-toast.min.js"></script>
     <style>
         #result {
@@ -137,92 +138,92 @@ const HTML = (lang) => `
     </div>
 </section>
 <script>
-    const form = document.querySelector('form');
+    const $form = $('form');
+    const $resultDiv = $('#result');
 
     /**
-    * 从URL中提取文件名
-    * @param url 下载链接
-    * @return 文件名
-    */
+     * 从URL中提取文件名
+     * @param url 下载链接
+     * @return 文件名
+     */
     function getFileName(url) {
-      var match = url.match('\/([^\/?#]+)[^\/]*$');
-      return match ? match[1] : 'download';
+        var match = url.match('\/([^\/?#]+)[^\/]*$');
+        return match ? match[1] : 'download';
     };
 
     /**
-    * 生成加速链接
-    * @param apiUrl API根路径
-    * @param url 下载链接
-    * @param filename 文件名
-    * @return 加速链接URL
-    */
-    function getAcceleratedUrl(apiUrl, url, filename='') {
-      const base64 = btoa(url);
-      const generateUrl  = apiUrl + filename + '?url=' + base64;
-      return generateUrl
+     * 生成加速链接
+     * @param apiUrl API根路径
+     * @param url 下载链接
+     * @param filename 文件名
+     * @return 加速链接URL
+     */
+    function getAcceleratedUrl(apiUrl, url, filename = '') {
+        const base64 = btoa(url);
+        const generateUrl = apiUrl + filename + '?url=' + base64;
+        return generateUrl
     }
 
     /**
-    * 复制URL到剪贴板
-    */
+     * 复制URL到剪贴板
+     */
     function copyToClipboard() {
-      const generateUrlInput = document.getElementById('generate-url');
-      const textToCopy = generateUrlInput.value;
+        const generateUrlInput = $('#generate-url');
+        const textToCopy = generateUrlInput.val();
 
-      navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-          bulmaToast.toast({
-              message: '${LANGUAGES[lang].copiedSuccess}',
-              type: 'is-success',
-              position: 'top-center',
-              duration: 3000,
-              animate: { in: 'fadeIn', out: 'fadeOut' }
-          });
-        })
-        .catch((err) => {
-          bulmaToast.toast({
-              message: '${LANGUAGES[lang].failedToCopy} ' + err,
-              type: 'is-danger',
-              position: 'top-center',
-              duration: 3000,
-              animate: { in: 'fadeIn', out: 'fadeOut' }
-          });
-        });
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                bulmaToast.toast({
+                    message: '${LANGUAGES[lang].copiedSuccess}',
+                    type: 'is-success',
+                    position: 'top-center',
+                    duration: 3000,
+                    animate: {in: 'fadeIn', out: 'fadeOut'}
+                });
+            })
+            .catch((err) => {
+                bulmaToast.toast({
+                    message: '${LANGUAGES[lang].failedToCopy} ' + err,
+                    type: 'is-danger',
+                    position: 'top-center',
+                    duration: 3000,
+                    animate: {in: 'fadeIn', out: 'fadeOut'}
+                });
+            });
     }
-    
+
     function addResult(generateUrl) {
-      const resultDiv = document.querySelector('#result');
-      resultDiv.innerHTML =
-          '<div class="box has-background-light">'
-          + '<label class="label" for="url">${LANGUAGES[lang].generateUrlLabel}</label>'
-          + '<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly>' + generateUrl + '</textarea>'
-          + '<div class="field is-grouped mt-3 buttons">'
-          + '<button class="button is-info" onclick="copyToClipboard()">${LANGUAGES[lang].copyLink}</button>'
-          + '<a class="button is-info" href="' + generateUrl + '">${LANGUAGES[lang].downloadLink}</a>'
-          + '</div>'
-          + '</div>';
-    }
-    
-    function removeResult() {
-       const resultDiv = document.querySelector('#result');
-       resultDiv.innerHTML = ""
+        var $box = $('<div class="box has-background-light"></div>');
+        var $label = $('<label class="label" for="url"></label>').text(LANGUAGES[lang].generateUrlLabel);
+        var $textarea = $('<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>').val(generateUrl);
+        var $buttonGroup = $('<div class="field is-grouped mt-3 buttons"></div>');
+        var $copyButton = $('<button class="button is-info"></button>').text(LANGUAGES[lang].copyLink).click(copyToClipboard);
+        var $downloadButton = $('<a class="button is-info" href="' + generateUrl + '"></a>').text(LANGUAGES[lang].downloadLink);
+
+        $box.append($label, $textarea, $buttonGroup);
+        $buttonGroup.append($copyButton, $downloadButton);
+        $resultDiv.html($box);
     }
 
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      const url = form.querySelector('#url').value.trim()
-      let filename = form.querySelector('#filename').value.trim()
-      if(!filename) {
-          filename = getFileName(url);
-      }
-      const apiUrl = window.location.href;
-      const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
-      console.log(generateUrl);
-      addResult(generateUrl)
+    function removeResult() {
+        $resultDiv.html("");
+    }
+
+    $form.on('submit', event => {
+        event.preventDefault();
+        const url = $('#url').val().trim();
+        let filename = $('#filename').val().trim();
+        if (!filename) {
+            filename = getFileName(url);
+        }
+        const apiUrl = window.location.href;
+        const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
+        console.log(generateUrl);
+        addResult(generateUrl)
     });
-    
-    form.addEventListener('reset', event => {
-      removeResult()
+
+    $form.on('reset', event => {
+        removeResult()
     });
 </script>
 </body>
