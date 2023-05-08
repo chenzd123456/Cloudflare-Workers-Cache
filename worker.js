@@ -87,6 +87,34 @@ const LANGUAGES = {
         failedToCopy: 'فشل نسخ النص: ',
         isInvilidUrl: 'الرابط غير صالح',
         githubText: 'مشغل بواسطة Cloudflare-Workers-Cache'
+    },
+    ja: {
+        title: 'ダウンロードリンクジェネレーター',
+        enterURL: 'URL を入力してください：',
+        enterFileName: 'ファイル名を入力してください：',
+        generateLink: '加速リンクを生成',
+        reset: 'リセット',
+        generateUrlLabel: 'URL を生成',
+        copyLink: 'リンクをコピー',
+        downloadLink: 'ダウンロードリンク',
+        copiedSuccess: 'テキストがクリップボードにコピーされました',
+        failedToCopy: 'テキストのコピーに失敗しました：',
+        isInvilidUrl: '無効なURLです',
+        githubText: 'Cloudflare-Workers-Cacheによって支援されています'
+    },
+    ko: {
+        title: '다운로드 링크 생성기',
+        enterURL: 'URL을 입력하십시오 :',
+        enterFileName: '파일 이름을 입력하세요 :',
+        generateLink: '가속 링크 생성',
+        reset: '초기화',
+        generateUrlLabel: 'URL 생성 :',
+        copyLink: '링크 복사',
+        downloadLink: '다운로드 링크',
+        copiedSuccess: '텍스트가 클립 보드에 복사되었습니다',
+        failedToCopy: '텍스트 복사 실패 :',
+        isInvilidUrl: '잘못된 URL 입니다',
+        githubText: 'Cloudflare-Workers-Cache의 지원으로 작동됨'
     }
 }
 
