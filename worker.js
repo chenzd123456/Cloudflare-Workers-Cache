@@ -1,5 +1,11 @@
+/**
+* 缓存过期时间（单位：秒）
+*/
 const CACHE_EXPIRED_TIME = 14400;
 
+/**
+* 多语言支持
+*/
 const LANGUAGES = {
   en: {
     title: 'Download Link Generator',
@@ -64,6 +70,9 @@ const LANGUAGES = {
   }
 }
 
+/**
+* 默认语言为英语
+*/
 const DEFAULT_LANG = 'en';
 
 const HTML = (lang) => `
@@ -130,17 +139,32 @@ const HTML = (lang) => `
 <script>
     const form = document.querySelector('form');
 
+    /**
+    * 从URL中提取文件名
+    * @param url 下载链接
+    * @return 文件名
+    */
     function getFileName(url) {
       var match = url.match('\/([^\/?#]+)[^\/]*$');
       return match ? match[1] : 'download';
     };
 
+    /**
+    * 生成加速链接
+    * @param apiUrl API根路径
+    * @param url 下载链接
+    * @param filename 文件名
+    * @return 加速链接URL
+    */
     function getAcceleratedUrl(apiUrl, url, filename='') {
       const base64 = btoa(url);
       const generateUrl  = apiUrl + filename + '?url=' + base64;
       return generateUrl
     }
 
+    /**
+    * 复制URL到剪贴板
+    */
     function copyToClipboard() {
       const generateUrlInput = document.getElementById('generate-url');
       const textToCopy = generateUrlInput.value;
