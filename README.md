@@ -4,11 +4,11 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/chenzd123456/Cloudflare-Workers-Cache?color=%23555555)
 ![GitHub language count](https://img.shields.io/github/languages/count/chenzd123456/Cloudflare-Workers-Cache?color=%23478CBF)
 
-借助 Cloudflare Workers，您可以轻松地将应用程序缓存，大幅提升资源下载速度。
+借助 Cloudflare Workers，您可以轻松地提升资源下载速度。
 
 ## 简介
 
-使用 Cloudflare-Workers-Cache 可以大幅提高Web应用程序和内容的加载速度，并减少服务器负载，从而降低了成本。以下是这个库提供的一些主要功能：
+使用 Cloudflare-Workers-Cache 提升资源下载速度。以下是这个库提供的一些主要功能：
 
 1. 通过 Cache API 缓存、更新及检索响应。
 
