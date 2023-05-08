@@ -129,10 +129,17 @@ const HTML = (lang) => `
 </section>
 <script>
     const form = document.querySelector('form');
+
     function getFileName(url) {
       var match = url.match('\/([^\/?#]+)[^\/]*$');
       return match ? match[1] : 'download';
     };
+
+    function getAcceleratedUrl(apiUrl, url, filename='') {
+      const base64 = btoa(url);
+      const generateUrl  = apiUrl + filename + '?url=' + base64;
+      return generateUrl
+    }
 
     function copyToClipboard() {
       const generateUrlInput = document.getElementById('generate-url');
@@ -162,22 +169,21 @@ const HTML = (lang) => `
     form.addEventListener('submit', event => {
       event.preventDefault();
       const url = form.querySelector('#url').value.trim()
-      let fileName = form.querySelector('#filename').value.trim()
-      if(!fileName) {
-          fileName = getFileName(url);
+      let filename = form.querySelector('#filename').value.trim()
+      if(!filename) {
+          filename = getFileName(url);
       }
-      const currentURL = window.location.href;
-      const base64 = btoa(url);
-      const resultDiv = document.querySelector('#result');
-      const generateUrl  = currentURL + fileName + '?url=' + base64;
+      const apiUrl = window.location.href;
+      const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
       console.log(generateUrl);
+      const resultDiv = document.querySelector('#result');
       resultDiv.innerHTML =
           '<div class="box has-background-light">'
           + '<label class="label" for="url">${LANGUAGES[lang].generateUrlLabel}</label>'
           + '<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly>' + generateUrl + '</textarea>'
           + '<div class="field is-grouped mt-3 buttons">'
           + '<button class="button is-info" onclick="copyToClipboard()">${LANGUAGES[lang].copyLink}</button>'
-          + '<a class="button is-info" href="' + fileName + '?url=' + base64 + '">${LANGUAGES[lang].downloadLink}</a>'
+          + '<a class="button is-info" href="' + generateUrl + '">${LANGUAGES[lang].downloadLink}</a>'
           + '</div>'
           + '</div>';
     });
