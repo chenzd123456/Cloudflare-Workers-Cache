@@ -7,73 +7,89 @@ const CACHE_EXPIRED_TIME = 14400;
 * 多语言支持
 */
 const LANGUAGES = {
-  en: {
-    title: 'Download Link Generator',
-    enterURL: 'Enter URL:',
-    enterFileName: 'Enter File Name:',
-    generateLink: 'Generate Accelerated Link',
-    reset: 'Reset',
-    generateUrlLabel: 'Generate URL:',
-    copyLink: 'Copy link',
-    downloadLink: 'Download link',
-    copiedSuccess: 'Text copied to clipboard',
-    failedToCopy: 'Failed to copy text:',
-    isInvilidUrl: 'Is invilid url',
-    githubText: 'Powered by Cloudflare-Workers-Cache'
-  },
-  zh: {
-    title: '下载链接生成器',
-    enterURL: '输入URL：',
-    enterFileName: '输入文件名：',
-    generateLink: '生成加速链接',
-    reset: '重置',
-    generateUrlLabel: '生成链接地址：',
-    copyLink: '复制链接',
-    downloadLink: '下载链接',
-    copiedSuccess: '已复制到剪贴板',
-    failedToCopy: '复制失败：',
-    githubText: '由 Cloudflare-Workers-Cache 提供支持'
-  },
-  fr: {
-    title: 'Générateur de lien de téléchargement',
-    enterURL: 'Entrez l\'URL :',
-    enterFileName: 'Entrez le nom de fichier :',
-    generateLink: 'Générer un lien accéléré',
-    reset: 'Réinitialiser',
-    generateUrlLabel: 'Générer l\'URL :',
-    copyLink: 'Copier le lien',
-    downloadLink: 'Télécharger le lien',
-    copiedSuccess: 'Texte copié dans le presse-papiers',
-    failedToCopy: 'Impossible de copier le texte ：',
-    githubText: 'Propulsé par Cloudflare-Workers-Cache'
-  },
-  es: {
-    title: 'Generador de enlaces de descarga',
-    enterURL: 'Introduce la URL:',
-    enterFileName: 'Introduce el nombre de archivo:',
-    generateLink: 'Generar enlace acelerado',
-    reset: 'Reiniciar',
-    generateUrlLabel: 'Generar URL:',
-    copyLink: 'Copiar enlace',
-    downloadLink: 'Enlace de descarga',
-    copiedSuccess: 'Texto copiado al portapapeles',
-    failedToCopy: 'Error al copiar el texto: ',
-    githubText: 'Desarrollado por Cloudflare-Workers-Cache'
-  },
-  de: {
-    title: 'Download-Link-Generator',
-    enterURL: 'URL eingeben:',
-    enterFileName: 'Dateiname eingeben:',
-    generateLink: 'Beschleunigten Link generieren',
-    reset: 'Zurücksetzen',
-    generateUrlLabel: 'Generierte URL:',
-    copyLink: 'Link kopieren',
-    downloadLink: 'Download-Link',
-    copiedSuccess: 'Text in die Zwischenablage kopiert',
-    failedToCopy: 'Fehler beim Kopieren des Textes: ',
-    githubText: 'Betrieben von Cloudflare-Workers-Cache'
-  }
+    en: {
+        title: 'Download Link Generator',
+        enterURL: 'Enter URL:',
+        enterFileName: 'Enter File Name:',
+        generateLink: 'Generate Accelerated Link',
+        reset: 'Reset',
+        generateUrlLabel: 'Generate URL:',
+        copyLink: 'Copy link',
+        downloadLink: 'Download link',
+        copiedSuccess: 'Text copied to clipboard',
+        failedToCopy: 'Failed to copy text:',
+        isInvilidUrl: 'Is invalid url',
+        githubText: 'Powered by Cloudflare-Workers-Cache'
+    },
+    zh: {
+        title: '下载链接生成器',
+        enterURL: '输入URL：',
+        enterFileName: '输入文件名：',
+        generateLink: '生成加速链接',
+        reset: '重置',
+        generateUrlLabel: '生成链接地址：',
+        copyLink: '复制链接',
+        downloadLink: '下载链接',
+        copiedSuccess: '已复制到剪贴板',
+        failedToCopy: '复制失败：',
+        isInvilidUrl: 'URL 地址无效',
+        githubText: '由 Cloudflare-Workers-Cache 提供支持'
+    },
+    fr: {
+        title: 'Générateur de lien de téléchargement',
+        enterURL: 'Entrez l\'URL :',
+        enterFileName: 'Entrez le nom de fichier :',
+        generateLink: 'Générer un lien accéléré',
+        reset: 'Réinitialiser',
+        generateUrlLabel: 'Générer l\'URL :',
+        copyLink: 'Copier le lien',
+        downloadLink: 'Télécharger le lien',
+        copiedSuccess: 'Texte copié dans le presse-papiers',
+        failedToCopy: 'Impossible de copier le texte :',
+        githubText: 'Propulsé par Cloudflare-Workers-Cache'
+    },
+    es: {
+        title: 'Generador de enlaces de descarga',
+        enterURL: 'Introduce la URL:',
+        enterFileName: 'Introduce el nombre de archivo:',
+        generateLink: 'Generar enlace acelerado',
+        reset: 'Reiniciar',
+        generateUrlLabel: 'Generar URL:',
+        copyLink: 'Copiar enlace',
+        downloadLink: 'Enlace de descarga',
+        copiedSuccess: 'Texto copiado al portapapeles',
+        failedToCopy: 'Error al copiar el texto: ',
+        githubText: 'Desarrollado por Cloudflare-Workers-Cache'
+    },
+    de: {
+        title: 'Download-Link-Generator',
+        enterURL: 'URL eingeben:',
+        enterFileName: 'Dateiname eingeben:',
+        generateLink: 'Beschleunigten Link generieren',
+        reset: 'Zurücksetzen',
+        generateUrlLabel: 'Generierte URL:',
+        copyLink: 'Link kopieren',
+        downloadLink: 'Download-Link',
+        copiedSuccess: 'Text in die Zwischenablage kopiert',
+        failedToCopy: 'Fehler beim Kopieren des Textes: ',
+        githubText: 'Betrieben von Cloudflare-Workers-Cache'
+    },
+    ar: {
+        title: 'مولد روابط التنزيل',
+        enterURL: 'أدخل الرابط:',
+        enterFileName: 'أدخل اسم الملف:',
+        generateLink: 'إنشاء رابط مسرع',
+        reset: 'إعادة تعيين',
+        generateUrlLabel: 'إنشاء رابط',
+        copyLink: 'نسخ الرابط',
+        downloadLink: 'رابط التنزيل',
+        copiedSuccess: 'تم نسخ النص إلى الحافظة',
+        failedToCopy: 'فشل نسخ النص: ',
+        isInvilidUrl: 'الرابط غير صالح',
+        githubText: 'مشغل بواسطة Cloudflare-Workers-Cache'
+    }
 }
+
 
 
 /**
@@ -180,6 +196,20 @@ const HTML = (lang) => `
         var match = url.match('\/([^\/?#]+)[^\/]*$');
         return match ? match[1] : 'download';
     };
+    
+    /**
+     * 验证URL是否合法的函数。
+     * @param {string} url - 要验证的URL字符串。
+     * @return {boolean} - 如果URL有效，则为true；否则为false。
+     */
+    function isValidUrl(url) {
+        try {
+            new URL(url);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
 
     /**
      * 生成加速链接
@@ -242,6 +272,18 @@ const HTML = (lang) => `
     $form.on('submit', event => {
         event.preventDefault();
         const url = $('#url').val().trim();
+        
+        if(!isValidUrl(url)) {
+           bulmaToast.toast({
+                message: '${LANGUAGES[lang].isInvilidUrl}',
+                type: 'is-danger',
+                position: 'top-center',
+                duration: 3000,
+                animate: {in: 'fadeIn', out: 'fadeOut'}
+            });
+            return;
+        }
+
         let filename = $('#filename').val().trim();
         if (!filename) {
             filename = getFileName(url);
@@ -249,11 +291,12 @@ const HTML = (lang) => `
         const apiUrl = window.location.href;
         const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
         console.log(generateUrl);
-        addResult(generateUrl)
+        removeResult();
+        addResult(generateUrl);
     });
 
     $form.on('reset', event => {
-        removeResult()
+        removeResult();
     });
 </script>
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
@@ -262,45 +305,45 @@ const HTML = (lang) => `
 `;
 
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
+    event.respondWith(handleRequest(event.request));
 })
 
 async function handleRequest(request) {
-  // 检查查询参数中是否包含base64编码的URL
-  const urlParam = new URL(request.url).searchParams.get('url')
-  const language = request.headers.get('accept-language');
-  const langCode = language ? language.split(',')[0].substring(0, 2) : DEFAULT_LANG;
-  
-  if (!urlParam) {
-    const response = new Response(HTML(langCode), {
-      headers: {
-        'Content-Type': 'text/html;charset=UTF-8',
-      },
-    })
-    return response;
-  }
-  
-  // 将base64编码的URL解码成真正的URL
-  const url = atob(urlParam);
-  
-  // 发送对原始资源的请求
-  const cache = caches.default;
-  let response = await cache.match(url);
-  
-  if (!response) {
-    response = await fetch(url)
-    await cache.put(url, response.clone())
-  }
+    // 检查查询参数中是否包含base64编码的URL
+    const urlParam = new URL(request.url).searchParams.get('url')
+    const language = request.headers.get('accept-language');
+    const langCode = language ? language.split(',')[0].substring(0, 2) : DEFAULT_LANG;
 
-  const fileSize = Number(response.headers.get('content-length'));
-
-  // 返回响应
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      ...response.headers,
-      'Cache-Control': `public, max-age=${CACHE_EXPIRED_TIME}`, // 设置资源缓存时间
-      'Content-Length':fileSize,
+    if (!urlParam) {
+        const response = new Response(HTML(langCode), {
+            headers: {
+                'Content-Type': 'text/html;charset=UTF-8',
+            },
+        })
+        return response;
     }
-  })
+
+    // 将base64编码的URL解码成真正的URL
+    const url = atob(urlParam);
+
+    // 发送对原始资源的请求
+    const cache = caches.default;
+    let response = await cache.match(url);
+
+    if (!response) {
+        response = await fetch(url)
+        await cache.put(url, response.clone())
+    }
+
+    const fileSize = Number(response.headers.get('content-length'));
+
+    // 返回响应
+    return new Response(response.body, {
+        status: response.status,
+        headers: {
+            ...response.headers,
+            'Cache-Control': `public, max-age=${CACHE_EXPIRED_TIME}`, // 设置资源缓存时间
+            'Content-Length': fileSize,
+        }
+    })
 } 
