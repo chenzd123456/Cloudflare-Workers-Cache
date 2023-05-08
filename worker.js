@@ -32,7 +32,7 @@ const LANGUAGES = {
     downloadLink: '下载链接',
     copiedSuccess: '已复制到剪贴板',
     failedToCopy: '复制失败：',
-    githubText: '由Cloudflare-Workers-Cache提供支持'
+    githubText: '由 Cloudflare-Workers-Cache 提供支持'
   },
   fr: {
     title: 'Générateur de lien de téléchargement',
@@ -154,14 +154,19 @@ const HTML = (lang) => `
                 <div id="result"></div>
             </div>
         </div>
-        <div class="github-link">
-            <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
-                <i class="fab fa-github github-icon"></i>
-                ${LANGUAGES[lang].githubText}
-            </a>
-        </div>
     </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <div class="github-link">
+              <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
+                  <i class="fab fa-github github-icon"></i>
+                  ${LANGUAGES[lang].githubText}
+              </a>
+          </div>
+         </div>
+      </footer>
 </section>
+
 <script>
     const $form = $('form');
     const $resultDiv = $('#result');
