@@ -223,15 +223,7 @@ const HTML = (lang) => `
     
     form.addEventListener('reset', event => {
       event.preventDefault();
-      const url = form.querySelector('#url').value.trim()
-      let filename = form.querySelector('#filename').value.trim()
-      if(!filename) {
-          filename = getFileName(url);
-      }
-      const apiUrl = window.location.href;
-      const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
-      console.log(generateUrl);
-      addResult(generateUrl)
+      removeResult(generateUrl)
     });
 </script>
 </body>
