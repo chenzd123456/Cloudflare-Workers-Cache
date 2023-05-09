@@ -340,19 +340,19 @@ const HTML = (lang) => `
                 <div id="result"></div>
             </div>
         </div>
-    </div>
-    <div class="content has-text-centered">
-        <div class="github-link">
-            <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
-                <i class="fab fa-github github-icon"></i> ${LANGUAGES[lang].githubText}
-            </a>
+        <div class="content has-text-centered">
+            <div class="github-link">
+                <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
+                    <i class="fab fa-github github-icon"></i> ${LANGUAGES[lang].githubText}
+                </a>
+            </div>
         </div>
+        <footer class="footer">
+            <div class="content disclaimer">
+                <p>${LANGUAGES[lang].disclaimerText}</p>
+            </div>
+        </footer>
     </div>
-    <footer class="footer">
-        <div class="content disclaimer">
-            <p>${LANGUAGES[lang].disclaimerText}</p>
-        </div>
-    </footer>
 </section>
 
 <script>
@@ -419,7 +419,7 @@ const HTML = (lang) => `
         var $textarea = $('<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>').val(generateUrl);
         var $buttonGroup = $('<div class="field is-grouped mt-3 buttons"></div>');
         var $copyButton = $('<button class="button is-info"></button>').text('${LANGUAGES[lang].copyLink}').click(copyToClipboard);
-        var $downloadButton = $('<a class="button is-info" href="' + generateUrl + '"></a>').text('${LANGUAGES[lang].downloadLink}');
+        var $downloadButton = $('<a class="button is-info" href="' + generateUrl + '" target="_blank"></a>').text('${LANGUAGES[lang].downloadLink}');
 
         $box.append($label, $textarea, $buttonGroup);
         $buttonGroup.append($copyButton, $downloadButton);
