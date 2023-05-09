@@ -257,7 +257,7 @@ const HTML = (lang) => `
         document.body.removeChild(textarea);
 
         bulmaToast.toast({
-            message: `${LANGUAGES[lang].copiedSuccess}`,
+            message: '${LANGUAGES[lang].copiedSuccess}',
             type: 'is-success',
             position: 'top-center',
             duration: 3000,
@@ -266,12 +266,12 @@ const HTML = (lang) => `
     }
 
     function addResult(generateUrl) {
-        var $box = $(`<div class="box has-background-light"></div>`);
-        var $label = $(`<label class="label" for="url"></label>`).text(`${LANGUAGES[lang].generateUrlLabel}`);
-        var $textarea = $(`<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>`).val(generateUrl);
-        var $buttonGroup = $(`<div class="field is-grouped mt-3 buttons"></div>`);
-        var $copyButton = $(`<button class="button is-info"></button>`).text(`${LANGUAGES[lang].copyLink}`).click(copyToClipboard);
-        var $downloadButton = $(`<a class="button is-info" href="${generateUrl}"></a>`).text(`${LANGUAGES[lang].downloadLink}`);
+        var $box = $('<div class="box has-background-light"></div>');
+        var $label = $('<label class="label" for="url"></label>').text('${LANGUAGES[lang].generateUrlLabel}');
+        var $textarea = $('<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>').val(generateUrl);
+        var $buttonGroup = $('<div class="field is-grouped mt-3 buttons"></div>');
+        var $copyButton = $('<button class="button is-info"></button>').text('${LANGUAGES[lang].copyLink}').click(copyToClipboard);
+        var $downloadButton = $('<a class="button is-info" href="' + generateUrl + '"></a>').text('${LANGUAGES[lang].downloadLink}');
 
         $box.append($label, $textarea, $buttonGroup);
         $buttonGroup.append($copyButton, $downloadButton);
@@ -289,7 +289,7 @@ const HTML = (lang) => `
         
         if(!isValidUrl(url)) {
             bulmaToast.toast({
-                message: `${LANGUAGES[lang].isInvilidUrl}`,
+                message: '${LANGUAGES[lang].isInvilidUrl}',
                 type: 'is-danger',
                 position: 'top-center',
                 duration: 3000,
