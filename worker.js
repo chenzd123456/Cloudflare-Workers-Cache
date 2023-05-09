@@ -167,9 +167,7 @@ const HTML = (lang) => `
                     <div class="field">
                         <label class="label" for="url">${LANGUAGES[lang].enterURL}</label>
                         <div class="control">
-                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3" autofocus>
-                                https://example.com
-                            </textarea>
+                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3" autofocus>https://example.com</textarea>
                         </div>
                     </div>
                     <div class="field">
