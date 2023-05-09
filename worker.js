@@ -21,7 +21,25 @@ const LANGUAGES = {
         copiedSuccess: 'Text copied to clipboard',
         failedToCopy: 'Failed to copy text:',
         isInvilidUrl: 'Is invalid url',
-        githubText: 'Powered by Cloudflare-Workers-Cache'
+        githubText: 'Powered by Cloudflare-Workers-Cache',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     zh: {
         title: '下载链接生成器',
@@ -35,7 +53,25 @@ const LANGUAGES = {
         copiedSuccess: '已复制到剪贴板',
         failedToCopy: '复制失败：',
         isInvilidUrl: 'URL 地址无效',
-        githubText: '由 Cloudflare-Workers-Cache 提供支持'
+        githubText: '由 Cloudflare-Workers-Cache 提供支持',
+        disclaimerText: `
+            <p>免责声明</p>
+            <p>使用Cloudflare Workers Cache工具（以下简称“工具”）需遵守本免责声明。在使用本工具之前，请仔细阅读并理解本声明。您的使用将视为接受本免责声明。</p>
+            <p>I. 服务可靠性</p>
+            <p>该工具是基于Cloudflare Workers平台开发，并依赖于平台提供的云计算资源。因此，该工具受Cloudflare平台服务可靠性的影响。如果Cloudflare平台服务中断、故障或出现其他技术问题，可能导致该工具无法使用。使用该工具的用户需要自行承担风险和责任。</p>
+            <p>II. 缓存内容的合法性</p>
+            <p>该工具的缓存功能仅用于缓存指定URL网页的内容，不能保证网页内容的真实性、合法性和准确性。如果网页内容违反相关法律法规或侵犯他人合法权益，使用该工具缓存内容的用户需要承担相应的法律责任和赔偿责任。</p>
+            <p>III. 其他责任</p>
+            <p>该工具的开发者为合法使用该工具提供可能的协助，但不对满足用户特定需求、无错或无中断作出任何承诺。使用该工具导致的任何风险和后果由用户承担。</p>
+            <p>IV. 注意事项</p>
+            <ol>
+                <li>请合理使用工具并遵守Cloudflare平台的规定和相关法律法规。</li>
+                <li>在使用该工具之前，请确保您具有足够的计算机技术知识和经验，以确保用户按照指示正确使用该工具。</li>
+                <li>如果发现该工具存在错误或安全漏洞，请及时联系开发者，并积极配合相关部门进行安全监测和调查工作。</li>
+                <li>开发者保留随时修改本免责声明和该工具使用条款的权利，最终解释权归开发者所有。</li>
+            </ol>
+            <p>如果本声明任何条款与相关法律法规不一致，则这些条款将按照法律法规的规定重新解释，而其他条款仍然有效。</p>
+            `
     },
     fr: {
         title: 'Générateur de lien de téléchargement',
@@ -48,7 +84,25 @@ const LANGUAGES = {
         downloadLink: 'Télécharger le lien',
         copiedSuccess: 'Texte copié dans le presse-papiers',
         failedToCopy: 'Impossible de copier le texte :',
-        githubText: 'Propulsé par Cloudflare-Workers-Cache'
+        githubText: 'Propulsé par Cloudflare-Workers-Cache',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     es: {
         title: 'Generador de enlaces de descarga',
@@ -61,7 +115,25 @@ const LANGUAGES = {
         downloadLink: 'Enlace de descarga',
         copiedSuccess: 'Texto copiado al portapapeles',
         failedToCopy: 'Error al copiar el texto: ',
-        githubText: 'Desarrollado por Cloudflare-Workers-Cache'
+        githubText: 'Desarrollado por Cloudflare-Workers-Cache',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     de: {
         title: 'Download-Link-Generator',
@@ -74,7 +146,25 @@ const LANGUAGES = {
         downloadLink: 'Download-Link',
         copiedSuccess: 'Text in die Zwischenablage kopiert',
         failedToCopy: 'Fehler beim Kopieren des Textes: ',
-        githubText: 'Betrieben von Cloudflare-Workers-Cache'
+        githubText: 'Betrieben von Cloudflare-Workers-Cache',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     ar: {
         title: 'مولد روابط التنزيل',
@@ -88,7 +178,25 @@ const LANGUAGES = {
         copiedSuccess: 'تم نسخ النص إلى الحافظة',
         failedToCopy: 'فشل نسخ النص: ',
         isInvilidUrl: 'الرابط غير صالح',
-        githubText: 'مشغل بواسطة Cloudflare-Workers-Cache'
+        githubText: 'مشغل بواسطة Cloudflare-Workers-Cache',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     ja: {
         title: 'ダウンロードリンクジェネレーター',
@@ -102,7 +210,25 @@ const LANGUAGES = {
         copiedSuccess: 'テキストがクリップボードにコピーされました',
         failedToCopy: 'テキストのコピーに失敗しました：',
         isInvilidUrl: '無効なURLです',
-        githubText: 'Cloudflare-Workers-Cacheによって支援されています'
+        githubText: 'Cloudflare-Workers-Cacheによって支援されています',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     },
     ko: {
         title: '다운로드 링크 생성기',
@@ -116,7 +242,25 @@ const LANGUAGES = {
         copiedSuccess: '텍스트가 클립 보드에 복사되었습니다',
         failedToCopy: '텍스트 복사 실패 :',
         isInvilidUrl: '잘못된 URL 입니다',
-        githubText: 'Cloudflare-Workers-Cache의 지원으로 작동됨'
+        githubText: 'Cloudflare-Workers-Cache의 지원으로 작동됨',
+        disclaimerText: `
+            <p>Disclaimer</p>
+            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>I. Reliability of Service</p>
+            <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
+            <p>II. Legality of Cached Content</p>
+            <p>The cache function of the tool is only used for caching the content of the specified URL webpage, and cannot guarantee the authenticity, legality, and accuracy of the webpage content. If the webpage content violates relevant laws and regulations or infringes on the legitimate rights and interests of others, users who use the tool to cache the content need to take corresponding legal responsibilities and compensation responsibilities.</p>
+            <p>III. Other Responsibilities</p>
+            <p>The developer of the tool provides possible assistance for the legitimate use of the tool, but does not make any promise to satisfy the specific needs of users, be free of errors or uninterrupted. Any risks and consequences arising from the use of the tool are borne by the user.</p>
+            <p>IV. Precautions</p>
+            <ol>
+              <li>Please use the tool reasonably and comply with the regulations of the Cloudflare platform and relevant laws and regulations.</li>
+              <li>Before using the tool, please ensure that you have sufficient computer technical knowledge and experience to ensure that users use the tool correctly as instructed.</li>
+              <li>If errors or security vulnerabilities are found in the tool, please contact the developer in time and actively cooperate with the relevant departments for security monitoring and investigation work.</li>
+              <li>The developer reserves the right to modify this disclaimer and the terms of use of the tool at any time, and the final interpretation right belongs to the developer.</li>
+            </ol>
+            <p>If any terms of this statement are inconsistent with relevant laws and regulations, these terms will be re-interpreted in accordance with the provisions of laws and regulations, while other terms will remain valid.</p>
+            `
     }
 }
 
@@ -197,16 +341,18 @@ const HTML = (lang) => `
             </div>
         </div>
     </div>
+    <div class="content has-text-centered">
+        <div class="github-link">
+            <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
+                <i class="fab fa-github github-icon"></i> ${LANGUAGES[lang].githubText}
+            </a>
+        </div>
+    </div>
     <footer class="footer">
-        <div class="content has-text-centered">
-          <div class="github-link">
-              <a href="https://github.com/chenzd123456/Cloudflare-Workers-Cache" target="_blank" rel="noopener" class="has-text-weight-bold">
-                  <i class="fab fa-github github-icon"></i>
-                  ${LANGUAGES[lang].githubText}
-              </a>
-          </div>
-         </div>
-      </footer>
+        <div class="content disclaimer">
+            <p>${LANGUAGES[lang].disclaimerText}</p>
+        </div>
+    </footer>
 </section>
 
 <script>
@@ -354,7 +500,7 @@ async function handleRequest(request) {
     }
 
     const fileSize = Number(response.headers.get('content-length'));
-    
+
     return new Response(response.body, {
         status: response.status,
         headers: {
