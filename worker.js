@@ -24,7 +24,7 @@ const LANGUAGES = {
         githubText: 'Powered by Cloudflare-Workers-Cache',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -56,7 +56,7 @@ const LANGUAGES = {
         githubText: '由 Cloudflare-Workers-Cache 提供支持',
         disclaimerText: `
             <p>免责声明</p>
-            <p>使用Cloudflare Workers Cache工具（以下简称“工具”）需遵守本免责声明。在使用本工具之前，请仔细阅读并理解本声明。您的使用将视为接受本免责声明。</p>
+            <p>在使用本工具之前，请仔细阅读并理解本声明。您的使用将视为接受本免责声明。</p>
             <p>I. 服务可靠性</p>
             <p>该工具是基于Cloudflare Workers平台开发，并依赖于平台提供的云计算资源。因此，该工具受Cloudflare平台服务可靠性的影响。如果Cloudflare平台服务中断、故障或出现其他技术问题，可能导致该工具无法使用。使用该工具的用户需要自行承担风险和责任。</p>
             <p>II. 缓存内容的合法性</p>
@@ -87,7 +87,7 @@ const LANGUAGES = {
         githubText: 'Propulsé par Cloudflare-Workers-Cache',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -118,7 +118,7 @@ const LANGUAGES = {
         githubText: 'Desarrollado por Cloudflare-Workers-Cache',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -149,7 +149,7 @@ const LANGUAGES = {
         githubText: 'Betrieben von Cloudflare-Workers-Cache',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -181,7 +181,7 @@ const LANGUAGES = {
         githubText: 'مشغل بواسطة Cloudflare-Workers-Cache',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -213,7 +213,7 @@ const LANGUAGES = {
         githubText: 'Cloudflare-Workers-Cacheによって支援されています',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
@@ -245,7 +245,7 @@ const LANGUAGES = {
         githubText: 'Cloudflare-Workers-Cache의 지원으로 작동됨',
         disclaimerText: `
             <p>Disclaimer</p>
-            <p>The use of Cloudflare Workers Cache tool (hereinafter referred to as "the tool") is subject to this disclaimer. Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
+            <p>Before using the tool, please read and understand this statement carefully. Your use of the tool constitutes acceptance of this disclaimer.</p>
             <p>I. Reliability of Service</p>
             <p>The tool is developed based on the Cloudflare Workers platform and relies on the cloud computing resources provided by the platform. Therefore, the tool is subject to the reliability of the Cloudflare platform service. If the Cloudflare platform service is interrupted, malfunctioning or other technical issues, it may cause the tool to be unusable. Users who use the tool need to take their own risks and responsibilities.</p>
             <p>II. Legality of Cached Content</p>
