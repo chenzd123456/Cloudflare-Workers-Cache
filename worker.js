@@ -129,6 +129,7 @@ const HTML = (lang) => `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${BULMA_CSS_SRC}">
     <link rel="stylesheet" href="${ANIMATE_CSS_SRC}"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script src="${JQUERY_SRC}"></script>
     <script src="${TOAST_SRC}"></script>
     <style>
@@ -160,7 +161,10 @@ const HTML = (lang) => `
 <body>
 <section class="section">
     <div class="container">
-        <h1 class="title has-text-centered">${LANGUAGES[lang].title}</h1>
+        <h1 class="title has-text-centered">
+            <i class="fas fa-cloud-download-alt"></i>
+            ${LANGUAGES[lang].title}
+        </h1>
         <div class="columns is-centered">
             <div class="column">
                 <form>
@@ -313,7 +317,6 @@ const HTML = (lang) => `
         removeResult();
     });
 </script>
-<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 </body>
 </html>
 `;
