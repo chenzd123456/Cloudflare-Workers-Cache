@@ -1,10 +1,12 @@
-/**
-* 缓存过期时间（单位：秒）
-*/
-const CACHE_EXPIRED_TIME = 14400;
+const CACHE_EXPIRED_TIME = 14400; //Cache Expiration Time (in seconds)
+const DEFAULT_LANG = 'en'; // English set as the default language.
+const JQUERY_SRC = 'https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js';
+const TOAST_SRC = 'https://cdn.jsdelivr.net/npm/bulma-toast@2.4.2/dist/bulma-toast.min.js';
+const BULMA_CSS_SRC = 'https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css';
+const ANIMATE_CSS_SRC = 'https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css';
 
 /**
-* 多语言支持
+* Multilingual Support
 */
 const LANGUAGES = {
     en: {
@@ -118,13 +120,6 @@ const LANGUAGES = {
     }
 }
 
-
-
-/**
-* 默认语言为英语
-*/
-const DEFAULT_LANG = 'en';
-
 const HTML = (lang) => `
 <!DOCTYPE html>
 <html lang="${lang}">
@@ -132,10 +127,10 @@ const HTML = (lang) => `
     <meta charset="UTF-8">
     <title>${LANGUAGES[lang].title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.2/dist/bulma-toast.min.js"></script>
+    <link rel="stylesheet" href="${BULMA_CSS_SRC}">
+    <link rel="stylesheet" href="${ANIMATE_CSS_SRC}"/>
+    <script src="${JQUERY_SRC}"></script>
+    <script src="${TOAST_SRC}"></script>
     <style>
         #result {
             margin-top: 20px;
@@ -172,7 +167,8 @@ const HTML = (lang) => `
                     <div class="field">
                         <label class="label" for="url">${LANGUAGES[lang].enterURL}</label>
                         <div class="control">
-                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3">https://example.com
+                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3" autofocus>
+                                https://example.com
                             </textarea>
                         </div>
                     </div>
@@ -212,24 +208,15 @@ const HTML = (lang) => `
 </section>
 
 <script>
-    const $form = $('form');
-    const $resultDiv = $('#result');
+    var $form = $('form');
+    var $resultDiv = $('#result');
 
-    /**
-     * 从URL中提取文件名
-     * @param url 下载链接
-     * @return 文件名
-     */
     function getFileName(url) {
-        var match = url.match('\/([^\/?#]+)[^\/]*$');
+        var regex = new RegExp('\/([^\/?#]+)[^\/]*$');
+        var match = url.match(regex);
         return match ? match[1] : 'download';
-    };
-    
-    /**
-     * 验证URL是否合法的函数。
-     * @param {string} url - 要验证的URL字符串。
-     * @return {boolean} - 如果URL有效，则为true；否则为false。
-     */
+    }
+
     function isValidUrl(url) {
         try {
             new URL(url);
@@ -238,55 +225,53 @@ const HTML = (lang) => `
             return false;
         }
     }
-
-    /**
-     * 生成加速链接
-     * @param apiUrl API根路径
-     * @param url 下载链接
-     * @param filename 文件名
-     * @return 加速链接URL
-     */
-    function getAcceleratedUrl(apiUrl, url, filename = '') {
-        const base64 = btoa(url);
-        const generateUrl = apiUrl + filename + '?url=' + base64;
-        return generateUrl
+    
+    function toBase64(str) {
+        try {
+            return btoa(str);
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
     }
 
-    /**
-     * 复制URL到剪贴板
-     */
-    function copyToClipboard() {
-        const generateUrlInput = $('#generate-url');
-        const textToCopy = generateUrlInput.val();
+    function getAcceleratedUrl(apiUrl, url, filename = '') {
+        var base64 = toBase64(url);
+        if (!base64) {
+            return null;
+        }
+        var generateUrl = apiUrl + filename + '?url=' + base64;
+        return generateUrl;
+    }
 
-        navigator.clipboard.writeText(textToCopy)
-            .then(() => {
-                bulmaToast.toast({
-                    message: '${LANGUAGES[lang].copiedSuccess}',
-                    type: 'is-success',
-                    position: 'top-center',
-                    duration: 3000,
-                    animate: {in: 'fadeIn', out: 'fadeOut'}
-                });
-            })
-            .catch((err) => {
-                bulmaToast.toast({
-                    message: '${LANGUAGES[lang].failedToCopy} ' + err,
-                    type: 'is-danger',
-                    position: 'top-center',
-                    duration: 3000,
-                    animate: {in: 'fadeIn', out: 'fadeOut'}
-                });
-            });
+    function copyToClipboard() {
+        var generateUrlInput = $('#generate-url');
+        var textToCopy = generateUrlInput.val();
+
+        var textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        textarea.setAttribute('style', 'opacity:0;');
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        bulmaToast.toast({
+            message: `${LANGUAGES[lang].copiedSuccess}`,
+            type: 'is-success',
+            position: 'top-center',
+            duration: 3000,
+            animate: {in: 'fadeIn', out: 'fadeOut'}
+        });
     }
 
     function addResult(generateUrl) {
-        var $box = $('<div class="box has-background-light"></div>');
-        var $label = $('<label class="label" for="url"></label>').text('${LANGUAGES[lang].generateUrlLabel}');
-        var $textarea = $('<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>').val(generateUrl);
-        var $buttonGroup = $('<div class="field is-grouped mt-3 buttons"></div>');
-        var $copyButton = $('<button class="button is-info"></button>').text('${LANGUAGES[lang].copyLink}').click(copyToClipboard);
-        var $downloadButton = $('<a class="button is-info" href="' + generateUrl + '"></a>').text('${LANGUAGES[lang].downloadLink}');
+        var $box = $(`<div class="box has-background-light"></div>`);
+        var $label = $(`<label class="label" for="url"></label>`).text(`${LANGUAGES[lang].generateUrlLabel}`);
+        var $textarea = $(`<textarea class="textarea is-primary is-static" id="generate-url" rows="3" readonly></textarea>`).val(generateUrl);
+        var $buttonGroup = $(`<div class="field is-grouped mt-3 buttons"></div>`);
+        var $copyButton = $(`<button class="button is-info"></button>`).text(`${LANGUAGES[lang].copyLink}`).click(copyToClipboard);
+        var $downloadButton = $(`<a class="button is-info" href="${generateUrl}"></a>`).text(`${LANGUAGES[lang].downloadLink}`);
 
         $box.append($label, $textarea, $buttonGroup);
         $buttonGroup.append($copyButton, $downloadButton);
@@ -300,11 +285,11 @@ const HTML = (lang) => `
     $form.on('submit', event => {
         event.preventDefault();
         removeResult();
-        const url = $('#url').val().trim();
+        var url = $('#url').val().trim();
         
         if(!isValidUrl(url)) {
-           bulmaToast.toast({
-                message: '${LANGUAGES[lang].isInvilidUrl}',
+            bulmaToast.toast({
+                message: `${LANGUAGES[lang].isInvilidUrl}`,
                 type: 'is-danger',
                 position: 'top-center',
                 duration: 3000,
@@ -313,14 +298,14 @@ const HTML = (lang) => `
             return;
         }
 
-        let filename = $('#filename').val().trim();
+        var filename = $('#filename').val().trim();
 
         if (!filename) {
             filename = getFileName(url);
         }
 
-        const apiUrl = window.location.href;
-        const generateUrl = getAcceleratedUrl(apiUrl, url, filename)
+        var apiUrl = window.location.href;
+        var generateUrl = getAcceleratedUrl(apiUrl, url, filename);
         console.log(generateUrl);
         removeResult();
         addResult(generateUrl);
@@ -335,12 +320,13 @@ const HTML = (lang) => `
 </html>
 `;
 
+
 addEventListener('fetch', event => {
     event.respondWith(handleRequest(event.request));
 })
 
 async function handleRequest(request) {
-    // 检查查询参数中是否包含base64编码的URL
+    // Check if the query parameters contain a URL encoded in base64.
     const urlParam = new URL(request.url).searchParams.get('url')
     const language = request.headers.get('accept-language');
     const langCode = language ? language.split(',')[0].substring(0, 2) : DEFAULT_LANG;
@@ -354,10 +340,10 @@ async function handleRequest(request) {
         return response;
     }
 
-    // 将base64编码的URL解码成真正的URL
+    // Decode the URL encoded in base64 to its original URL.
     const url = atob(urlParam);
 
-    // 发送对原始资源的请求
+    // Send a request for the original resource.
     const cache = caches.default;
     let response = await cache.match(url);
 
@@ -367,13 +353,12 @@ async function handleRequest(request) {
     }
 
     const fileSize = Number(response.headers.get('content-length'));
-
-    // 返回响应
+    
     return new Response(response.body, {
         status: response.status,
         headers: {
             ...response.headers,
-            'Cache-Control': `public, max-age=${CACHE_EXPIRED_TIME}`, // 设置资源缓存时间
+            'Cache-Control': `public, max-age=${CACHE_EXPIRED_TIME}`, // Set the cache duration for the resource.
             'Content-Length': fileSize,
         }
     })
