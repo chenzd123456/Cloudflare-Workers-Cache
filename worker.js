@@ -1,4 +1,5 @@
 const CACHE_EXPIRED_TIME = 14400; //Cache Expiration Time (in seconds)
+const CACHE_MAX_SIZE = 300 * 1024 * 1024;
 const DEFAULT_LANG = 'en'; // English set as the default language.
 const JQUERY_SRC = 'https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js';
 const TOAST_SRC = 'https://cdn.jsdelivr.net/npm/bulma-toast@2.4.2/dist/bulma-toast.min.js';
@@ -315,7 +316,7 @@ const HTML = (lang) => `
                     <div class="field">
                         <label class="label" for="url">${LANGUAGES[lang].enterURL}</label>
                         <div class="control">
-                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3" autofocus>https://example.com</textarea>
+                            <textarea class="textarea is-primary" type="text" id="url" name="url" rows="3" placeholder="https://example.com" autofocus></textarea>
                         </div>
                     </div>
                     <div class="field">
@@ -493,20 +494,30 @@ async function handleRequest(request) {
     // Send a request for the original resource.
     const cache = caches.default;
     let response = await cache.match(url);
+    let fileSize = 0;
 
     if (!response) {
         response = await fetch(url)
-        await cache.put(url, response.clone())
+        fileSize = Number(response.headers.get('content-length'));
+
+        if(fileSize <= CACHE_MAX_SIZE) {
+            await cache.put(url, response.clone())
+        }
     }
 
-    const fileSize = Number(response.headers.get('content-length'));
+    let headers_override = {}
+    
+    headers_override['Cache-Control'] = `public, max-age=${CACHE_EXPIRED_TIME}`; // Set the cache duration for the resource.
+
+    if(fileSize != 0) {
+        headers_override['Content-Length'] = `${fileSize}`;
+    }
 
     return new Response(response.body, {
         status: response.status,
         headers: {
             ...response.headers,
-            'Cache-Control': `public, max-age=${CACHE_EXPIRED_TIME}`, // Set the cache duration for the resource.
-            'Content-Length': fileSize,
+            ...headers_override
         }
     })
 } 
